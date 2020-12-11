@@ -1,0 +1,57 @@
+<header class="header">
+
+    <a href="">
+        <img class="logo"
+            src="https://www.buildgrowscalelive.com/hosted/images/e9/3120b04fc611e88964b13c057c143c/BGS-Live-navbar-icon-no-date.png">
+    </a>
+
+
+    <nav class="main-menu">
+        <ul class="menu">
+            <li>
+                <a href="">{{ 'sport' | localize}} </a>
+            </li>
+            <li>
+                <a href=""> {{ 'live' | localize}} </a>
+            </li>
+            <li>
+                <a href=""> {{'casino' | localize}}</a>
+            </li>
+            <li>
+                <a href=""> {{ 'mini_games' | localize}}</a>
+            </li>
+            <li>
+                <a href="">{{'poker' | localize}}</a>
+            </li>
+            <li>
+                <a href="">{{'p2p' | localize }}</a>
+            </li>
+            <li>
+                <a href=""> {{'promotions' | localize }}</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="right-menu">
+        <form class="auth-form" action="">
+            <div class="input-wrapper">
+                <input class="field" type="text" placeholder="{{'username' | localize}} ">
+            </div>
+            <div class="input-wrapper">
+                <input class="field" type="password" placeholder="{{'password' | localize}}">
+            </div>
+
+            <button class="sign-btn" type="submit"> {{'sign_in' | localize}} </button>
+        </form>
+
+
+        <button class="register-btn" (click)="registerClick()"> {{'register' | localize}} </button>
+        <div class="language-wrapper">
+            <app-language></app-language>
+        </div>
+    </div>
+</header>
+
+<bgs-dialog [(visibility)]="showRegisterDialog" width="300px" background-color="#2b2e34" >
+    <app-register></app-register>
+</bgs-dialog>

@@ -1,0 +1,29 @@
+{
+    "sport": "სპორტი",
+    "live": "ლაივი",
+    "casino": "კაზინო",
+    "mini_games": "მინი თამაშები",
+    "poker": "პოკერი",
+    "p2p": "P2P",
+    "promotions": "სიახლეები",
+    "username": "მომხმარებელი",
+    "password": "პაროლი",
+    "sign_in" : "შესვლა",
+    "register": "რეგისტრაცია",
+    "Create new account": "შექმენი ახალი ანგარიში",
+    "firstname": "სახელი",
+    "lastname": "გვარი",
+    "gender": "სქესი",
+    "male" : "მამრობითი",
+    "female" : "მდედრობითი",
+    "day": "დღე",
+    "month": "თვე",
+    "year": "წელი",
+    "address": "მისამართი",
+    "email": "ელ-ფოსტა",
+    "repeatPassword": "გაიმეორეთ პაროლი",
+    "birthdate": "დაბადების თარიღი",
+    "continue": "გაგრძელება"
+    
+
+}

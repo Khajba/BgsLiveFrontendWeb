@@ -1,0 +1,30 @@
+{
+    "sport": "SPORT",
+    "live": "LIVE",
+    "casino": "CASINO",
+    "mini_games": "MINI_GAMES",
+    "poker": "POKER",
+    "p2p": "P2P",
+    "promotions": "PROMOTIONS",
+    "username": "Username",
+    "password": "Password",
+    "sign_in" : "Sign in",
+    "register": "Register",
+    "Create new account": "Create New Account",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "gender": "Gender",
+    "male" : "Male",
+    "female" : "Female",
+    "day": "Day",
+    "month": "Month",
+    "year": "Year",
+    "address": "Address",
+    "email": "Email",
+    "repeatPassword": "Repeat Password",
+    "birthdate": "Birthdate",
+    "continue": "Continue"
+    
+    
+    
+}
