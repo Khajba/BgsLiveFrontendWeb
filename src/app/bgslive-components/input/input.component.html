@@ -1,1 +1,2 @@
-<input class="input" type="text" [placeholder]="placeholder" [style.width]="width" [maxLength]="maxLength">
+<input class="input" [type]="type" value="{{value}}" (input)="onInput($event.target.value)" (blur)="onTouched()"
+    [placeholder]="placeholder" [style.width]="width" [maxLength]="maxLength" [disabled]="isDisabled"  [class.disabled]="isDisabled">

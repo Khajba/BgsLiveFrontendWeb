@@ -15,10 +15,10 @@
                 <a href=""> {{ 'live' | localize}} </a>
             </li>
             <li>
-                <a href=""> {{'casino' | localize}}</a>
+                <a routerLink="/casino"> {{'casino' | localize}}  </a>
             </li>
             <li>
-                <a href=""> {{ 'mini_games' | localize}}</a>
+                <a routerLink="/slot" > {{ 'slots' | localize}}</a>
             </li>
             <li>
                 <a href="">{{'poker' | localize}}</a>
@@ -35,10 +35,10 @@
     <div class="right-menu">
         <form class="auth-form" action="">
             <div class="input-wrapper">
-                <input class="field" type="text" placeholder="{{'username' | localize}} ">
+                <bgs-input name="firstname" placeholder="{{'username' | localize}} " width="125px" [(ngModel)]="user.username" > </bgs-input>
             </div>
             <div class="input-wrapper">
-                <input class="field" type="password" placeholder="{{'password' | localize}}">
+               <bgs-input name="password" placeholder="{{'password' | localize}}" width="125px" [(ngModel)]="user.password" ></bgs-input>
             </div>
 
             <button class="sign-btn" type="submit"> {{'sign_in' | localize}} </button>

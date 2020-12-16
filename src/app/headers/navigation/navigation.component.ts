@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticateUserModel } from 'src/app/models/authorization/authentificate-user.model';
 
 @Component({
   selector: 'app-navigation',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+
+  user: AuthenticateUserModel = {}
 
   showRegisterDialog: boolean = false;
 

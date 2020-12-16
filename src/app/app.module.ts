@@ -16,6 +16,7 @@ import { DialogComponentComponent } from './bgslive-components/dialog-component/
 import { RegisterComponent } from './features/account/register/register.component';
 import { InputComponent } from './bgslive-components/input/input.component';
 import { ButtonComponentComponent } from './bgslive-components/button-component/button-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,20 +32,20 @@ import { ButtonComponentComponent } from './bgslive-components/button-component/
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BgsLiveSharedModule
-    
+    BgsLiveSharedModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
-      provide : APP_INITIALIZER,
-      useFactory: (settings : AppConfigurationService) => async () => await settings.init(),
+      provide: APP_INITIALIZER,
+      useFactory: (settings: AppConfigurationService) => async () => await settings.init(),
       deps: [AppConfigurationService],
       multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass:  HttpErrorHandlerInterceptor,
-      multi: true 
+      useClass: HttpErrorHandlerInterceptor,
+      multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
