@@ -22,7 +22,10 @@ export class InputComponent implements ControlValueAccessor {
   placeholder: string;
 
   @Input('width')
-  width: string= '150px'
+  width: string = '150px'
+
+  @Input('height')
+  height: string = '25px'
 
   @Input('maxLength')
   maxLength: number = 30;
@@ -31,6 +34,7 @@ export class InputComponent implements ControlValueAccessor {
   onChange: (val: any) => void;
   onTouched: () => void;
   isDisabled: boolean;
+  isRequired: boolean;
 
   constructor() { }
 
@@ -48,6 +52,10 @@ export class InputComponent implements ControlValueAccessor {
 
   setDisabledState?(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  setRequiredState?(isRequired: boolean): void {
+    this.isRequired = isRequired;
   }
 
   onInput(val: any) {

@@ -58,6 +58,38 @@
                 margin-left: 10px;
             }
         }
+
+        .sign-in-right-menu-wrapper {
+            display: flex;
+            .pin-name-wrapper {
+                display: flex;
+
+                .pin,
+                .name {
+                    color: darkgrey;
+                    margin-left: 10px;
+                }
+            }
+            .balance-wrapper {
+                display: flex;
+                padding: 11px 0px;
+
+                .amount {
+                    color: white;
+                    font-size: 14px;
+                    width: 50px;
+                    background-color: #1f2021;
+                    text-align: center;
+                }
+                .balance {
+                    width: 150px;
+                    color: #39a63f;
+                    font-weight: bolder;
+                    cursor: pointer;
+                    margin-left: 5px;
+                }
+            }
+        }
     }
     .register-btn {
         background: #80808054;

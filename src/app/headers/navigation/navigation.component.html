@@ -15,10 +15,10 @@
                 <a href=""> {{ 'live' | localize}} </a>
             </li>
             <li>
-                <a routerLink="/casino"> {{'casino' | localize}}  </a>
+                <a routerLink="/casino"> {{'casino' | localize}} </a>
             </li>
             <li>
-                <a routerLink="/slot" > {{ 'slots' | localize}}</a>
+                <a routerLink="/slot"> {{ 'slots' | localize}}</a>
             </li>
             <li>
                 <a href="">{{'poker' | localize}}</a>
@@ -33,25 +33,50 @@
     </nav>
 
     <div class="right-menu">
-        <form class="auth-form" action="">
-            <div class="input-wrapper">
-                <bgs-input name="firstname" placeholder="{{'username' | localize}} " width="125px" [(ngModel)]="user.username" > </bgs-input>
+        <ng-container *ngIf="!isAuthenticated">
+            <form class="auth-form" action="">
+                <div class="input-wrapper">
+                    <bgs-input name="firstname" placeholder="{{'username' | localize}} " width="125px"
+                        [(ngModel)]="user.username"> </bgs-input>
+                </div>
+                <div class="input-wrapper">
+                    <bgs-input name="password" placeholder="{{'password' | localize}}" width="125px"
+                        [(ngModel)]="user.password"></bgs-input>
+                </div>
+
+                <button class="sign-btn" type="submit" (click)="singIn()"> {{'sign_in' | localize}} </button>
+            </form>
+
+
+            <button class="register-btn" (click)="registerClick()"> {{'register' | localize}} </button>
+        </ng-container>
+
+
+        <div class="sign-in-right-menu-wrapper" *ngIf="isAuthenticated">
+            <div>
+                <div class="pin-name-wrapper">
+                    <div class="pin">PIN 32322 /</div>
+                    <div class="name">Gio</div>
+                </div>
+
+                <div class="balance-wrapper">
+                    <div class="amount">0.03</div>
+                    <div class="balance"> {{'balance_management' | localize}} </div>
+                </div>
             </div>
-            <div class="input-wrapper">
-               <bgs-input name="password" placeholder="{{'password' | localize}}" width="125px" [(ngModel)]="user.password" ></bgs-input>
+
+            <div class="account-circle">
+                <app-user-profile></app-user-profile>
             </div>
 
-            <button class="sign-btn" type="submit"> {{'sign_in' | localize}} </button>
-        </form>
+        </div>
 
-
-        <button class="register-btn" (click)="registerClick()"> {{'register' | localize}} </button>
         <div class="language-wrapper">
             <app-language></app-language>
         </div>
     </div>
 </header>
 
-<bgs-dialog [(visibility)]="showRegisterDialog" width="300px" background-color="#2b2e34" >
+<bgs-dialog [(visibility)]="showRegisterDialog" width="300px" background-color="#2b2e34">
     <app-register></app-register>
 </bgs-dialog>

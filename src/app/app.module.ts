@@ -14,9 +14,9 @@ import { BgsLiveSharedModule } from './shared/shared.module';
 import { LanguageComponent } from './headers/language/language.component';
 import { DialogComponentComponent } from './bgslive-components/dialog-component/dialog-component.component';
 import { RegisterComponent } from './features/account/register/register.component';
-import { InputComponent } from './bgslive-components/input/input.component';
 import { ButtonComponentComponent } from './bgslive-components/button-component/button-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserProfileComponent } from './headers/navigation/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LanguageComponent,
     DialogComponentComponent,
     RegisterComponent,
-    InputComponent,
-    ButtonComponentComponent
+    ButtonComponentComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

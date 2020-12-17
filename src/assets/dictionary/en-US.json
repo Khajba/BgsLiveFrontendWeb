@@ -24,7 +24,13 @@
     "repeatPassword": "Repeat Password",
     "birthdate": "Birthdate",
     "continue": "Continue",
-    "slots": "Slots"
+    "slots": "Slots",
+    "id" : "Id",
+    "balance_management" : "Balance Management",
+    "inbox": "Inbox",
+    "edit_profile": "Edit Profile",
+    "change_password": "Change Password",
+    "sign_out": "SIGN OUT"
     
     
     

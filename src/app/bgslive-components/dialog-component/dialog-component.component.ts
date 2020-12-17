@@ -15,7 +15,7 @@ export class DialogComponentComponent implements OnInit {
   @Input('width')
   width: string;
   @Input('background-color')
-  backgroundColor : string = 'white'
+  backgroundColor: string = 'white';
 
   constructor() { }
 

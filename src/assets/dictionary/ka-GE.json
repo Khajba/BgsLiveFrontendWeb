@@ -24,7 +24,13 @@
     "repeatPassword": "გაიმეორეთ პაროლი",
     "birthdate": "დაბადების თარიღი",
     "continue": "გაგრძელება",
-    "slots": "სლოტები"
+    "slots": "სლოტები",
+    "id" : "პირადი ნომერი",
+    "balance_management" : "ბალანსის მართვა",
+    "inbox": "შეტყობინებები",
+    "edit_profile": "პროფილის რედაქტირება",
+    "change_password": "პაროლის შეცვლა",
+    "sign_out": "გასვლა"
     
 
 }

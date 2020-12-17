@@ -10,7 +10,9 @@ import { LocalizationService } from '../localization/localization.service';
 })
 export class AppConfigurationService {
 
-    private appConfiguration: AppConfiguration = {};
+    public get appConfiguration(): AppConfiguration { return this._appConfiguration; };
+    private _appConfiguration: AppConfiguration = {};
+
     private dictionary: { key?: string, value?: string } = {};
     private errorCodes: { errorCode?: number, message?: string } = {};
 
@@ -24,10 +26,6 @@ export class AppConfigurationService {
         await this.initErrorCodes();
 
         return true;
-    }
-
-    getAppConfig(configName: string) {
-        return this.appConfiguration[configName];
     }
 
     getDictionary(dictionaryName: string) {
@@ -47,9 +45,9 @@ export class AppConfigurationService {
             { responseType: 'text', headers: { skipJwtInterceptor: 'true' } }
         ).pipe(
             map(data => {
-                this.appConfiguration = JSON.parse(data);
+                this._appConfiguration = JSON.parse(data);
             }, () => {
-                this.appConfiguration = {};
+                this._appConfiguration = {};
             })
         ).toPromise();
 

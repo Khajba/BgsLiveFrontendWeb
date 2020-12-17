@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'slot',
     loadChildren: async () => ((await (await import('./features/slot/slot.module')).SlotModule))
+  },
+  {
+    path: 'user',
+    loadChildren: async () => ((await import('./features/user/user.module')).UserModule)
   }
 ];
 

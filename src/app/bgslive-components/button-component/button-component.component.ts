@@ -8,14 +8,19 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ButtonComponentComponent implements OnInit {
 
   @Input('width')
-  width : string;
+  width: string;
 
   @Input('label')
-  label:string;
+  label: string;
+
+  @Input('isDisabled')
+  isDisabled: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+ 
 
 }
