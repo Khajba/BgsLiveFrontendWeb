@@ -10,16 +10,16 @@
 
         <div class="name">
             <div class="firstname">
-                <label class="label" for="firstname"> {{'firstname' | localize}} </label>
+                <label class="label" for="firstname"  > {{'firstname' | localize}} </label>
                 <div class="field">
-                    <bgs-input disabled></bgs-input>
+                    <bgs-input  [(ngModel)]="user.firstname"></bgs-input>
                 </div>
             </div>
 
             <div class="lastname">
-                <label class="label" for="firstname"> {{'lastname' | localize}} </label>
+                <label class="label" for="lastname"> {{'lastname' | localize}} </label>
                 <div class="field">
-                    <bgs-input disabled></bgs-input>
+                    <bgs-input [(ngModel)]="user.lastname"></bgs-input>
                 </div>
             </div>
         </div>
@@ -27,26 +27,26 @@
         <div class="birthdate">
             <label class="label"> {{'birthdate' | localize}} </label>
             <div class="field">
-                <bgs-input width="97px" disabled></bgs-input>
-                <bgs-input width="97px" disabled></bgs-input>
-                <bgs-input width="97px" disabled></bgs-input>
+                <bgs-input width="97px" [(ngModel)]="user.birthDay"></bgs-input>
+                <bgs-input width="97px" [(ngModel)]="user.birthMonth"></bgs-input>
+                <bgs-input width="97px"[(ngModel)]="user.birthYear"></bgs-input>
             </div>
         </div>
 
         <div class="gender">
             <label class="label"> {{'gender' | localize}} </label>
             <div class="radio-input">
-                <input type="radio">
-                <label class="label" for=""> {{'male' | localize}} </label>
-                <input type="radio">
-                <label class="label" for=""> {{'female' | localize}} </label>
+                <input type="radio" [(ngModel)]="user.gender">
+                <label class="label"> {{'male' | localize}} </label>
+                <input type="radio" [(ngModel)]="user.gender">
+                <label class="label" > {{'female' | localize}} </label>
             </div>
         </div>
 
         <div class="address">
             <label class="label"> {{'address' | localize}} </label>
             <div class="field">
-                <bgs-input width="305px" disabled></bgs-input>
+                <bgs-input width="305px" [(ngModel)]="user.address"></bgs-input>
             </div>
         </div>
 
@@ -55,21 +55,21 @@
     <div class="contact-information">
 
         <div class="telephone">
-            <label class="label"> {{'telephone' | localize}} </label>
+            <label class="label"> {{'phone' | localize}} </label>
             <div class="field">
-                <bgs-input width="305px" disabled></bgs-input>
+                <bgs-input width="305px" [(ngModel)]="user.phoneNumber"></bgs-input>
             </div>
         </div>
 
         <div class="email">
             <label class="label"> {{'email' | localize}} </label>
             <div class="field">
-                <bgs-input width="305px" disabled></bgs-input>
+                <bgs-input width="305px" [(ngModel)]="user.email"></bgs-input>
             </div>
         </div>
 
-        <div>
-            <bgs-button>  </bgs-button>
+        <div class="btn-wrapper">
+            <bgs-button width="100%" label="{{'update_profile' | localize}}" (click)="updateClick()"> </bgs-button>
         </div>
 
     </div>

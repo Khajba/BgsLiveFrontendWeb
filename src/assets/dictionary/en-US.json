@@ -30,7 +30,12 @@
     "inbox": "Inbox",
     "edit_profile": "Edit Profile",
     "change_password": "Change Password",
-    "sign_out": "SIGN OUT"
+    "sign_out": "SIGN OUT",
+    "update_profile": "Update Profile",
+    "phone":"Phone",
+    "transactions": "Transactions",
+    "to": "To",
+    "from": "From"
     
     
     

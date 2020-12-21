@@ -12,14 +12,14 @@ import { AuthenticateUserModel } from 'src/app/models/authorization/authentifica
 @Injectable()
 export class AuthorizationService {
 
-    private get apiBaseUri() { return `${this.appConfigService.getAppConfig('apiBaseUri')}/api/account`; }
+    private get apiBaseUri() { return `${this.appConfigService.appConfiguration.apiBaseUri}/api/account`; }
 
     isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.cookieService.get(Constants.KEY_AUTH_USER) !== "");
 
     get authUserData(): AuthUserModel {
         const authUserCookie = this.cookieService.get(Constants.KEY_AUTH_USER);
 
-        if (authUserCookie === "") {
+        if (authUserCookie === "") { 
             window.location.reload();
 
             return <any>{};

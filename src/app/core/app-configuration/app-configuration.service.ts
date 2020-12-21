@@ -13,8 +13,11 @@ export class AppConfigurationService {
     public get appConfiguration(): AppConfiguration { return this._appConfiguration; };
     private _appConfiguration: AppConfiguration = {};
 
-    private dictionary: { key?: string, value?: string } = {};
-    private errorCodes: { errorCode?: number, message?: string } = {};
+    public get dictionary(): {} { return this._dictionary }
+    private _dictionary: {}
+
+    public get errorCodes(): {} { return this._errorCodes }
+    private _errorCodes: {} = {};
 
     constructor(
         private readonly httpClient: HttpClient,
@@ -26,14 +29,6 @@ export class AppConfigurationService {
         await this.initErrorCodes();
 
         return true;
-    }
-
-    getDictionary(dictionaryName: string) {
-        return this.dictionary[dictionaryName] || dictionaryName;
-    }
-
-    getErrorMessage(errorCode: number) {
-        return this.errorCodes[errorCode];
     }
 
     private async initConfig() {
@@ -64,10 +59,10 @@ export class AppConfigurationService {
             { responseType: 'text', headers: { skipJwtInterceptor: 'true' } }
         ).pipe(map(
             data => {
-                this.dictionary = JSON.parse(data);
+                this._dictionary = JSON.parse(data);
             },
             () => {
-                this.dictionary = {};
+                this._dictionary = {};
             })
         ).toPromise();
     }
@@ -77,10 +72,10 @@ export class AppConfigurationService {
             { responseType: 'text', headers: { skipJwtInterceptor: 'true' } }
         ).pipe(map(
             data => {
-                this.errorCodes = JSON.parse(data);
+                this._errorCodes = JSON.parse(data);
             },
             () => {
-                this.errorCodes = {};
+                this._errorCodes = {};
             })
         ).toPromise();
     }

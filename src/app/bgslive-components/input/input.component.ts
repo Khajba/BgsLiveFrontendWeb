@@ -19,7 +19,7 @@ export class InputComponent implements ControlValueAccessor {
   type: string;
 
   @Input('placeholder')
-  placeholder: string;
+  placeholder: string=''
 
   @Input('width')
   width: string = '150px'

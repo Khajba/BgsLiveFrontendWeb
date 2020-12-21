@@ -5,6 +5,7 @@
     </div>
 
     <div class="menu" *ngIf="showMenu">
+        <a class="menu-item" routerLink="/user/transactions"> {{'transactions' | localize}}</a>
         <a class="menu-item"> {{'inbox' | localize}} </a>
         <a class="menu-item" routerLink="/user/edit"> {{'edit_profile' | localize}}</a>
         <a class="menu-item"> {{'change_password' | localize}} </a>

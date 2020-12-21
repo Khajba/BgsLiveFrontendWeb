@@ -23,7 +23,7 @@ export class HttpErrorHandlerInterceptor implements HttpInterceptor {
                 if (error instanceof HttpErrorResponse) {
                     if (error.status == 400) {
                         const errorMessage =
-                            error.error.errorCode ? this.appConfigService.getErrorMessage(error.error.errorCode)
+                            error.error.errorCode ? this.appConfigService.errorCodes[error.error.errorCode] || 'Something Went Wrong'
                                 : error.error.errors ? error.error.title : 'Something went wrong';
 
                         this.messageService.add({ severity: 'error', detail: errorMessage })

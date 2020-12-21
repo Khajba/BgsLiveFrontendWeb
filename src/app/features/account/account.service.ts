@@ -12,7 +12,7 @@ export class AccountService {
 
     private get apiBaseUri() {
         return `${this.configurationService.appConfiguration.apiBaseUri}/api/account`;
-    }
+    } 
 
     constructor(
         private readonly httpService: HttpService,

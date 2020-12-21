@@ -14,9 +14,10 @@ import { BgsLiveSharedModule } from './shared/shared.module';
 import { LanguageComponent } from './headers/language/language.component';
 import { DialogComponentComponent } from './bgslive-components/dialog-component/dialog-component.component';
 import { RegisterComponent } from './features/account/register/register.component';
-import { ButtonComponentComponent } from './bgslive-components/button-component/button-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './headers/navigation/user-profile/user-profile.component';
+import { UserService } from './features/user/user.service';
+import { AuthorizationModule } from './core/authorization/authorization.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,6 @@ import { UserProfileComponent } from './headers/navigation/user-profile/user-pro
     LanguageComponent,
     DialogComponentComponent,
     RegisterComponent,
-    ButtonComponentComponent,
     UserProfileComponent
   ],
   imports: [
@@ -33,7 +33,8 @@ import { UserProfileComponent } from './headers/navigation/user-profile/user-pro
     AppRoutingModule,
     HttpClientModule,
     BgsLiveSharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AuthorizationModule
   ],
   providers: [
     {
@@ -58,7 +59,8 @@ import { UserProfileComponent } from './headers/navigation/user-profile/user-pro
       multi: true
     },
     MessageService,
-    AuthorizationService
+    AuthorizationService,
+    UserService
 
 
   ],

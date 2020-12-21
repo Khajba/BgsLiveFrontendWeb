@@ -55,12 +55,12 @@
         <div class="sign-in-right-menu-wrapper" *ngIf="isAuthenticated">
             <div>
                 <div class="pin-name-wrapper">
-                    <div class="pin">PIN 32322 /</div>
-                    <div class="name">Gio</div>
+                    <div class="pin">PIN {{user.pinCode}} /</div>
+                    <div class="name"> {{user.firstname}} </div>
                 </div>
 
                 <div class="balance-wrapper">
-                    <div class="amount">0.03</div>
+                    <div class="amount"> {{user.balance}} </div>
                     <div class="balance"> {{'balance_management' | localize}} </div>
                 </div>
             </div>
