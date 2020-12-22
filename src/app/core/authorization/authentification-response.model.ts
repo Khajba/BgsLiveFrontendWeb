@@ -1,7 +1,6 @@
 export interface AuthUserModel {
-    email: string;
+    pinCode: string;
     firstname: string;
-    lastname: string;
     jwt: JsonWebToken;
 }
 

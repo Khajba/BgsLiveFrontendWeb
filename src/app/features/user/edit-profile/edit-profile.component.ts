@@ -18,10 +18,8 @@ export class EditProfileComponent implements OnInit {
   }
 
   updateClick() {
-    this.userService.update(this.user.phoneNumber).subscribe(
+    this.userService.update(this.user).subscribe(
       response => {
-        this.user.phoneNumber = response;
-        this.getDetails();
 
       }
     )
@@ -30,7 +28,7 @@ export class EditProfileComponent implements OnInit {
   private getDetails() {
     this.userService.getDetails().subscribe(
       response => {
-
+        this.user =response
       }
     )
   }

@@ -19,7 +19,7 @@ export class InputComponent implements ControlValueAccessor {
   type: string;
 
   @Input('placeholder')
-  placeholder: string=''
+  placeholder: string = ''
 
   @Input('width')
   width: string = '150px'
@@ -59,6 +59,10 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   onInput(val: any) {
-    this.onChange(val);
+    if (this.type == 'number') {
+      this.onChange(+val);
+    } else {
+      this.onChange(val);
+    }
   }
 }

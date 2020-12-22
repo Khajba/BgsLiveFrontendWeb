@@ -3,6 +3,7 @@ import { AppConfigurationService } from "src/app/core/app-configuration/app-conf
 import { HttpService } from "src/app/core/http/http.service";
 import { UserDetails } from "src/app/models/user-models/user-details.model";
 import { map } from "rxjs/operators";
+import { Password } from "src/app/models/user-models/password.model";
 
 @Injectable()
 export class UserService {
@@ -16,21 +17,38 @@ export class UserService {
         private readonly httpService: HttpService
     ) { }
 
-    update(phoneNumber: string) {
-
-        return this.httpService.post<string>(`${this.apiBaseUri}/update`, { phoneNumber })
+    update(user: UserDetails) {
+        const requestParams = {
+            ...user,
+            birthDate: new Date(user.birthYear, user.birthMonth - 1, user.birthDay)
+        }
+        debugger
+        return this.httpService.post<UserDetails>(`${this.apiBaseUri}/update`, requestParams, true)
     }
 
     getDetails() {
         return this.httpService.get<UserDetails>(`${this.apiBaseUri}/getDetails`)
             .pipe(map(
                 response => {
-                    let birthdate = response.birtDate;
-                    response.birthDay = birthdate.getDate();
-                    response.birthMonth = birthdate.getMonth() + 1;
-                    response.birthYear = birthdate.getFullYear();
+                    let birthdate = new Date(response.birthDate);
+                    if (birthdate) {
+                        response.birthDay = birthdate.getDate();
+                        response.birthMonth = birthdate.getMonth() + 1;
+                        response.birthYear = birthdate.getFullYear();
+                    }
+
+                    return response;
+
                 }
             ))
-
     }
+    getBalance() {
+        return this.httpService.get<number>(`${this.apiBaseUri}/getBalance`)
+    }
+
+    changePassword(password : Password) {
+        return this.httpService.post(`${this.apiBaseUri}/changePassword`, password, true)
+    }
+
+
 }

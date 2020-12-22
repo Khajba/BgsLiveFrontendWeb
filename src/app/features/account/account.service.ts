@@ -20,12 +20,10 @@ export class AccountService {
 
     registerUser(user: RegisterUserModel) {
         let birthdate = new Date(user.birthYear, user.birthMonth-1, user.birthDay)
-        return this.httpService.post<RegisterUserModel>(`${this.apiBaseUri}/registerUser`, { ...user, birthdate })
+        return this.httpService.post<RegisterUserModel>(`${this.apiBaseUri}/registerUser`, { ...user, birthdate }, true)
     }
 
-    login(user: AuthenticateUserModel) {
-        return this.httpService.get<AuthUserModel>(`${this.apiBaseUri}/login`, user)
-    }
+  
 
 
 }

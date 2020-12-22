@@ -35,7 +35,23 @@
     "phone":"Phone",
     "transactions": "Transactions",
     "to": "To",
-    "from": "From"
+    "from": "From",
+    "period": "Period",
+    "amount": "Amount",
+    "deposit": "Deposit",
+    "withdrow": "Withdrow",
+    "operation_type": "Operation Type",
+    "date": "Date",
+    "fee": "Fee",
+    "win": "Win",
+    "bet": "Bet",
+    "status": "Status",
+    "enter_old_password": "Enter Old Password",
+    "enter_new_password": "Enter New Password",
+    "confirm_new_password": "Confirm New Password",
+    "error": "Error",
+    "success": "Success"
+
     
     
     

@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './headers/navigation/user-profile/user-profile.component';
 import { UserService } from './features/user/user.service';
 import { AuthorizationModule } from './core/authorization/authorization.module';
+import { BalanceComponent } from './headers/balance/balance.component';
+import { BgsToastComponent } from './bgslive-components/bgs-toast/bgs-toast.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AuthorizationModule } from './core/authorization/authorization.module';
     LanguageComponent,
     DialogComponentComponent,
     RegisterComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    BalanceComponent,
+    BgsToastComponent
   ],
   imports: [
     BrowserModule,

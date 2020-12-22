@@ -27,18 +27,18 @@
         <div class="birthdate">
             <label class="label"> {{'birthdate' | localize}} </label>
             <div class="field">
-                <bgs-input width="97px" [(ngModel)]="user.birthDay"></bgs-input>
-                <bgs-input width="97px" [(ngModel)]="user.birthMonth"></bgs-input>
-                <bgs-input width="97px"[(ngModel)]="user.birthYear"></bgs-input>
+                <bgs-input type="number" width="97px" [(ngModel)]="user.birthDay"></bgs-input>
+                <bgs-input type="number" width="97px" [(ngModel)]="user.birthMonth"></bgs-input>
+                <bgs-input type="number" width="97px"[(ngModel)]="user.birthYear"></bgs-input>
             </div>
         </div>
 
         <div class="gender">
             <label class="label"> {{'gender' | localize}} </label>
             <div class="radio-input">
-                <input type="radio" [(ngModel)]="user.gender">
+                <input type="radio" [value]="1" [(ngModel)]="user.genderId">
                 <label class="label"> {{'male' | localize}} </label>
-                <input type="radio" [(ngModel)]="user.gender">
+                <input type="radio" [value]="2" [(ngModel)]="user.genderId">
                 <label class="label" > {{'female' | localize}} </label>
             </div>
         </div>

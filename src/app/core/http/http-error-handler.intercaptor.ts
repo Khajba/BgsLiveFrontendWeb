@@ -5,6 +5,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { MessageService } from 'primeng/api';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { ToastService } from 'src/app/bgslive-components/bgs-toast/toast.service';
+import { Severity } from 'src/app/enums/severity-enum';
 import { AppConfigurationService } from '../app-configuration/app-configuration.service';
 import { Constants } from '../constants';
 
@@ -12,7 +14,7 @@ import { Constants } from '../constants';
 export class HttpErrorHandlerInterceptor implements HttpInterceptor {
 
     constructor(
-        private readonly messageService: MessageService,
+        private readonly toastService: ToastService,
         private readonly cookieService: CookieService,
         private readonly router: Router,
         private readonly appConfigService: AppConfigurationService) { }
@@ -26,17 +28,17 @@ export class HttpErrorHandlerInterceptor implements HttpInterceptor {
                             error.error.errorCode ? this.appConfigService.errorCodes[error.error.errorCode] || 'Something Went Wrong'
                                 : error.error.errors ? error.error.title : 'Something went wrong';
 
-                        this.messageService.add({ severity: 'error', detail: errorMessage })
+                        this.toastService.add({ severity: Severity.Error , message: errorMessage })
                     }
                     else if (error.status == 401) {
                         this.cookieService.delete(Constants.KEY_AUTH_USER, "/");
                         this.router.navigate(['account', 'login']);
                     }
                     else if (error.status == 403) {
-                        this.messageService.add({ severity: 'error', detail: 'Not authorized' })
+                        this.toastService.add({ severity: Severity.Error, message: 'Not authorized' })
                     }
                     else {
-                        this.messageService.add({ severity: 'error', detail: 'Something went wrong' })
+                        this.toastService.add({ severity: Severity.Error, message: 'Something went wrong' })
                     }
                 }
                 return throwError(error);

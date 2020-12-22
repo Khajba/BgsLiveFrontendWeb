@@ -21,12 +21,6 @@
                 <a routerLink="/slot"> {{ 'slots' | localize}}</a>
             </li>
             <li>
-                <a href="">{{'poker' | localize}}</a>
-            </li>
-            <li>
-                <a href="">{{'p2p' | localize }}</a>
-            </li>
-            <li>
                 <a href=""> {{'promotions' | localize }}</a>
             </li>
         </ul>
@@ -55,14 +49,11 @@
         <div class="sign-in-right-menu-wrapper" *ngIf="isAuthenticated">
             <div>
                 <div class="pin-name-wrapper">
-                    <div class="pin">PIN {{user.pinCode}} /</div>
-                    <div class="name"> {{user.firstname}} </div>
+                    <div class="pin">PIN {{authUser.pinCode}} /</div>
+                    <div class="name"> {{authUser.firstname}} </div>
                 </div>
 
-                <div class="balance-wrapper">
-                    <div class="amount"> {{user.balance}} </div>
-                    <div class="balance"> {{'balance_management' | localize}} </div>
-                </div>
+                <app-balance *ngIf="isAuthenticated"></app-balance>
             </div>
 
             <div class="account-circle">
