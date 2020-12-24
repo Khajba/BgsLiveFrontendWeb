@@ -9,9 +9,9 @@
     </div>
 
     <div class="transactions" *ngFor="let transaction of transactions" >
-        <div class="status column"> {{transaction.status}} </div>
+        <div class="status column"> {{transaction.statusId}} </div>
         <div class="amount column"> {{transaction.amount  | number : '1.2-2' | currency: 'GEL': 'symbol-narrow'}} </div>
-        <div class="operation column"> {{transaction.operationType}} </div>
+        <div class="operation column"> {{transaction.transactionTypeId}} </div>
         <div class="date column"> {{transaction.date | date: 'dd/MM/yyyy HH:mm'}} </div>
         <div class="fee column"> {{transaction.fee | number : '1.2-2' | currency: 'GEL': 'symbol-narrow'}} </div>
 

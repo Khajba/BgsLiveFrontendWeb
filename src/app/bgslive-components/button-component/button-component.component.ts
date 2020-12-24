@@ -10,6 +10,9 @@ export class ButtonComponentComponent implements OnInit {
   @Input('width')
   width: string;
 
+  @Input('backgroundColor')
+  backgroundColor: string='green'
+
   @Input('label')
   label: string;
 

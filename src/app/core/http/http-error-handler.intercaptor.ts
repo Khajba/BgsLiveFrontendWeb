@@ -2,7 +2,6 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from "@angular/core";
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { MessageService } from 'primeng/api';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ToastService } from 'src/app/bgslive-components/bgs-toast/toast.service';
@@ -26,7 +25,7 @@ export class HttpErrorHandlerInterceptor implements HttpInterceptor {
                     if (error.status == 400) {
                         const errorMessage =
                             error.error.errorCode ? this.appConfigService.errorCodes[error.error.errorCode] || 'Something Went Wrong'
-                                : error.error.errors ? error.error.title : 'Something went wrong';
+                                : error.error.errors ? error.error.title : this.appConfigService.dictionary['something_went_wrong'];
 
                         this.toastService.add({ severity: Severity.Error , message: errorMessage })
                     }
@@ -35,10 +34,14 @@ export class HttpErrorHandlerInterceptor implements HttpInterceptor {
                         this.router.navigate(['account', 'login']);
                     }
                     else if (error.status == 403) {
-                        this.toastService.add({ severity: Severity.Error, message: 'Not authorized' })
+                        this.toastService.add({ 
+                            severity: Severity.Error,
+                             message: this.appConfigService.dictionary['not_authorized']  })
                     }
                     else {
-                        this.toastService.add({ severity: Severity.Error, message: 'Something went wrong' })
+                        this.toastService.add({ 
+                            severity: Severity.Error,
+                             message: this.appConfigService.dictionary['something_went_wrong']  })
                     }
                 }
                 return throwError(error);

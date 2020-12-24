@@ -4,15 +4,18 @@ import { MessageService } from 'primeng/api';
 import { map } from 'rxjs/operators';
 import { ToastService } from "src/app/bgslive-components/bgs-toast/toast.service";
 import { Severity } from "src/app/enums/severity-enum";
+import { LocalizationService } from "../localization/localization.service";
+import { AppConfigurationService } from "../app-configuration/app-configuration.service";
 
 @Injectable({
     providedIn: 'root'
 })
-export class HttpService { 
+export class HttpService {
 
     constructor(
         private readonly httpClient: HttpClient,
-        private readonly toastService: ToastService) { }
+        private readonly toastService: ToastService,
+        private readonly appConfigService: AppConfigurationService) { }
 
     get<TData>(url: string, queryParams?: {}, showDefaultMessage?: boolean, skipJwtInterceptor: boolean = false) {
         return this.httpClient
@@ -40,7 +43,10 @@ export class HttpService {
 
     private handleResponse<TData>(response: TData, showDefaultMessage: boolean) {
         if (showDefaultMessage) {
-            this.toastService.add({ severity: Severity.Error, message: 'Operation completed successfully' })
+            this.toastService.add({
+                severity: Severity.Success,
+                message: this.appConfigService.dictionary['operation_completed_successfully']
+            })
         }
         return response;
     }

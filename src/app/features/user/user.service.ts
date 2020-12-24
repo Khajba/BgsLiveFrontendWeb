@@ -1,9 +1,10 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { AppConfigurationService } from "src/app/core/app-configuration/app-configuration.service";
 import { HttpService } from "src/app/core/http/http.service";
 import { UserDetails } from "src/app/models/user-models/user-details.model";
 import { map } from "rxjs/operators";
 import { Password } from "src/app/models/user-models/password.model";
+import { TransactionFilterModel } from "src/app/models/user-models/transaction-filter.model";
 
 @Injectable()
 export class UserService {
@@ -46,8 +47,20 @@ export class UserService {
         return this.httpService.get<number>(`${this.apiBaseUri}/getBalance`)
     }
 
-    changePassword(password : Password) {
+    addBalance(amount: number) {
+        return this.httpService.post(`${this.apiBaseUri}/addBalance`, amount , true)
+    }
+
+    withdrow(amount: number) {
+        return this.httpService.post(`${this.apiBaseUri}/withdrow`, amount , true)
+    }
+
+    changePassword(password: Password) {
         return this.httpService.post(`${this.apiBaseUri}/changePassword`, password, true)
+    }
+
+    getTransactions(filter : TransactionFilterModel ){
+        return this.httpService.get(`${this.apiBaseUri}/getTransactions`, filter)
     }
 
 

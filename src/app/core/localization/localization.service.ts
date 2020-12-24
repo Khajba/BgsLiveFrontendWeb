@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from 'rxjs';
+import { AppConfigurationService } from "../app-configuration/app-configuration.service";
 import { Constants } from '../constants';
 import { Language } from './language';
 

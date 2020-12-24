@@ -1,10 +1,10 @@
 import { TransactionStatus } from "src/app/enums/transaction-status.enum";
 import { TransactionType } from "src/app/enums/transaction-type.enum";
 
-export interface TransactionListModel {
-    statusId?: TransactionStatus;
-    amount?: number;
+export interface TransactionFilterModel {
+    amountFrom?: number;
+    amountTo?: number;
     transactionTypeId?: TransactionType;
-    date?: Date;
-    fee?: number;
+    dateFrom?: Date;
+    dateTo?: Date;
 }

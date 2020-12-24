@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { ToastService } from 'src/app/bgslive-components/bgs-toast/toast.service';
 import { AuthUserModel } from 'src/app/core/authorization/authentification-response.model';
 import { AuthorizationService } from 'src/app/core/authorization/authorization-service';
+import { Severity } from 'src/app/enums/severity-enum';
 import { UserService } from 'src/app/features/user/user.service';
 import { AuthenticateUserModel } from 'src/app/models/authorization/authentificate-user.model';
 
@@ -28,8 +30,7 @@ export class NavigationComponent implements OnInit {
 
   constructor(
     private readonly authorizationService: AuthorizationService,
-    private readonly messageService: MessageService,
-    private readonly userService: UserService) { }
+    private readonly toastService: ToastService) { }
 
   ngOnInit(): void {
   }
@@ -40,7 +41,7 @@ export class NavigationComponent implements OnInit {
 
   singIn() {
     if (!this.user.username || !this.user.password) {
-      this.messageService.add({ severity: 'error', detail: 'Enter All Field', summary: 'Error' })
+      this.toastService.add({ severity: Severity.Error, message: 'Enter All Field' })
     }
 
     this.login();

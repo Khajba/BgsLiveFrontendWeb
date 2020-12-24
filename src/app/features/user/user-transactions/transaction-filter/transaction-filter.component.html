@@ -8,42 +8,42 @@
 
         <div class="inputs">
             <div class="input-field">
-                <bgs-input placeholder="{{'from' | localize}} "></bgs-input>
+                <bgs-input type="date" placeholder="{{'from' | localize}} " [(ngModel)]="filter.dateFrom" ></bgs-input>
             </div>
             <div class="input-field">
-                <bgs-input placeholder="{{'to' | localize}} "></bgs-input>
+                <bgs-input type="date" onfocus="(this.type='date')" placeholder="{{'to' | localize}} " [(ngModel)]="filter.dateTo"></bgs-input>
             </div>
             <div class="input-field">
-                <bgs-input placeholder="{{'from' | localize}} "> </bgs-input>
+                <bgs-input placeholder="{{'from' | localize}} "[(ngModel)]="filter.amountFrom" > </bgs-input>
             </div>
             <div class="input-field">
-                <bgs-input placeholder="{{'to' | localize}} "></bgs-input>
+                <bgs-input placeholder="{{'to' | localize}} " [(ngModel)]="filter.amountTo"></bgs-input>
             </div>
         </div>
 
         <div class="checkbox-inputs-wrapper">
 
             <div class="checkbox-input">
-                <input type="checkbox">
+                <input type="checkbox" [(ngModel)]="filter.transactionTypeId" >
                 <label> {{'deposit' | localize}} </label>
             </div>
 
             <div class="checkbox-input">
-                <input type="checkbox">
+                <input type="checkbox" [(ngModel)]="filter.transactionTypeId" >
                 <label> {{'withdrow' | localize}} </label>
             </div>
 
             <div class="checkbox-input">
-                <input type="checkbox">
+                <input type="checkbox" [(ngModel)]="filter.transactionTypeId" >
                 <label> {{'bet' | localize}} </label>
             </div>
             <div class="checkbox-input">
-                <input type="checkbox">
+                <input type="checkbox"[(ngModel)]="filter.transactionTypeId" >
                 <label> {{'win' | localize}} </label>
             </div>
 
             <div class="btn-wrapper">
-                <button> filter </button>
+                <bgs-button label=" {{'filter' | localize}} "> </bgs-button>
             </div>
 
         </div>
